@@ -18,10 +18,10 @@ JNIEXPORT void JNICALL Java_CocoJNI_cocoSetLogLevel
 /*
  * Class:     CocoJNI
  * Method:    cocoGetObserver
- * Signature: (Ljava/lang/String;Ljava/lang/String;)J
+ * Signature: (Ljava/lang/String;Ljava/lang/String;J)J
  */
 JNIEXPORT jlong JNICALL Java_CocoJNI_cocoGetObserver
-  (JNIEnv *, jclass, jstring, jstring);
+  (JNIEnv *, jclass, jstring, jstring, jlong);
 
 /*
  * Class:     CocoJNI

@@ -11,11 +11,11 @@ public class Observer {
 	 * @param observerOptions
 	 * @throws Exception
 	 */
-	public Observer(String observerName, String observerOptions) throws Exception {
+	public Observer(String observerName, String observerOptions, long multiplier) throws Exception {
 
 		super();
 		try {
-			this.pointer = CocoJNI.cocoGetObserver(observerName, observerOptions);
+			this.pointer = CocoJNI.cocoGetObserver(observerName, observerOptions, multiplier);
 			this.name = observerName;
 		} catch (Exception e) {
 			throw new Exception("Observer constructor failed.\n" + e.toString());

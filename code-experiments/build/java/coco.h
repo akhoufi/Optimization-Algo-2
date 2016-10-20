@@ -264,7 +264,7 @@ void coco_suite_decode_problem_index(const coco_suite_t *suite,
 /**
  * @brief Constructs a COCO observer.
  */
-coco_observer_t *coco_observer(const char *observer_name, const char *options);
+coco_observer_t *coco_observer(const char *observer_name, const char *options, long multiplier);
 
 /**
  * @brief Frees the given observer.

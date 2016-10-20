@@ -15,7 +15,7 @@ public class ExampleExperiment {
 	 * dimension * BUDGET_MULTIPLIER.
 	 * Increase the budget multiplier value gradually to see how it affects the runtime.
 	 */
-	public static final int BUDGET_MULTIPLIER = 600;
+	public static int BUDGET_MULTIPLIER = 2;
 	
 	/**
 	 * The maximal number of independent restarts allowed for an algorithm that restarts itself. 
@@ -25,7 +25,7 @@ public class ExampleExperiment {
 	/**
 	 * The random seed. Change if needed.
 	 */
-	public static final long RANDOM_SEED = null;
+	public static final long RANDOM_SEED = 0xdeadbeef;
 
 	/**
 	 * The problem to be optimized (needed in order to simplify the interface between the optimization
@@ -56,7 +56,11 @@ public class ExampleExperiment {
 	public static void main(String[] args) {
 		
 		Random randomGenerator = new Random(RANDOM_SEED);
-
+		
+		if(args.length > 0){
+			BUDGET_MULTIPLIER = Integer.valueOf(args[0]);
+		}
+		
 		/* Change the log level to "warning" to get less output */
 		CocoJNI.cocoSetLogLevel("info");
 
@@ -95,7 +99,7 @@ public class ExampleExperiment {
 
 			/* Initialize the suite and observer */
 			Suite suite = new Suite(suiteName, "year: 2016", "dimensions: 2,3,5,10,20,40");
-			Observer observer = new Observer(observerName, observerOptions);
+			Observer observer = new Observer(observerName, observerOptions, (long)BUDGET_MULTIPLIER);
 			Benchmark benchmark = new Benchmark(suite, observer);
 
 			/* Initialize timing */
@@ -175,7 +179,7 @@ public class ExampleExperiment {
 		for (int j = 0; j < dimension; j++) {
 			range = upperBounds[j] - lowerBounds[j];
 			x[j] = lowerBounds[j] + randomGenerator.nextDouble() * range;
-			sigma[j] = (upperBounds[j] - lowerBounds[j])/4.0;	// 1/4th of the spread in that dimension
+			sigma[j] = (upperBounds[j] - lowerBounds[j])/20.0;	// 1/4th of the spread in that dimension
 		}
 		
 		// Budget is defined as the no. of f-evals, since each time we create new population, we do lambda evals, so modifying myBudget accordingly 

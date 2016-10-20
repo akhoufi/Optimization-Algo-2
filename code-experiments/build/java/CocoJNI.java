@@ -12,7 +12,7 @@ public class CocoJNI {
 	public static native void cocoSetLogLevel(String logLevel);
 	
 	// Observer
-	public static native long cocoGetObserver(String observerName, String observerOptions);
+	public static native long cocoGetObserver(String observerName, String observerOptions, long multiplier);
 	public static native void cocoFinalizeObserver(long observerPointer);
 	public static native long cocoProblemAddObserver(long problemPointer, long observerPointer);
 	public static native long cocoProblemRemoveObserver(long problemPointer, long observerPointer);

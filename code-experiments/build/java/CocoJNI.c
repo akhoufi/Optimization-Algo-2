@@ -44,7 +44,7 @@ JNIEXPORT void JNICALL Java_CocoJNI_cocoSetLogLevel
  * Signature: (Ljava/lang/String;Ljava/lang/String;)J
  */
 JNIEXPORT jlong JNICALL Java_CocoJNI_cocoGetObserver
-(JNIEnv *jenv, jclass interface_cls, jstring jobserver_name, jstring jobserver_options) {
+(JNIEnv *jenv, jclass interface_cls, jstring jobserver_name, jstring jobserver_options, jlong multiplier) {
 
   coco_observer_t *observer = NULL;
   const char *observer_name;
@@ -59,7 +59,7 @@ JNIEXPORT jlong JNICALL Java_CocoJNI_cocoGetObserver
   observer_name = (*jenv)->GetStringUTFChars(jenv, jobserver_name, NULL);
   observer_options = (*jenv)->GetStringUTFChars(jenv, jobserver_options, NULL);
 
-  observer = coco_observer(observer_name, observer_options);
+  observer = coco_observer(observer_name, observer_options, (long)multiplier);
 
   return (jlong) observer;
 }

@@ -284,7 +284,7 @@ void coco_suite_decode_problem_index(const coco_suite_t *suite,
 /**
  * @brief Constructs a COCO observer.
  */
-coco_observer_t *coco_observer(const char *observer_name, const char *options);
+coco_observer_t *coco_observer(const char *observer_name, const char *options, long multiplier);
 
 /**
  * @brief Frees the given observer.
@@ -15747,11 +15747,15 @@ static coco_problem_t *logger_toy(coco_observer_t *observer, coco_problem_t *inn
  *
  * @return The constructed observer object or NULL if observer_name equals NULL, "" or "no_observer".
  */
-coco_observer_t *coco_observer(const char *observer_name, const char *observer_options) {
+coco_observer_t *coco_observer(const char *observer_name, const char *observer_options, long multiplier) {
 
   coco_observer_t *observer;
   char *path, *result_folder, *algorithm_name, *algorithm_info;
-  const char *outer_folder_name = "exdata";
+  
+  char *outer_folder_name = (char*)malloc(50 * sizeof(char));
+  sprintf(outer_folder_name, "exdata-%i", multiplier);
+  
+  //const char *outer_folder_name = "exdata";
   int precision_x, precision_f;
 
   size_t number_target_triggers;

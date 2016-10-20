@@ -1,0 +1,230 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x77739170, pid=8040, tid=0x00001994
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_101-b13) (build 1.8.0_101-b13)
+# Java VM: Java HotSpot(TM) Client VM (25.101-b13 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  [msvcrt.dll+0x89170]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00b2b800):  JavaThread "main" [_thread_in_native, id=6548, stack(0x022d0000,0x02320000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0x14fe1d60, ECX=0x00000000, EDX=0x00000000
+ESP=0x0231fa6c, EBP=0x0231fb28, ESI=0x14fe1d60, EDI=0x00b2b800
+EIP=0x77739170, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x0231fa6c)
+0x0231fa6c:   6d7d72c5 00000000 6d80aaeb 00aa4268
+0x0231fa7c:   00000068 00000000 00000000 0000000d
+0x0231fa8c:   00000002 00000000 0245c7e8 0231faac
+0x0231fa9c:   77c14ea2 0231fad4 6c1972d3 00b2b800
+0x0231faac:   6d80aaeb 6d80aaf9 6d80ab08 6d80ab17
+0x0231fabc:   6d80ab2e 6d80ab3f 6d80ab5a 6d80ab73
+0x0231facc:   6d80ab7f 00000000 0231fae4 6c197344
+0x0231fadc:   00b2b800 0231fd08 0231fb28 6c269f8e 
+
+Instructions: (pc=0x77739170)
+0x77739150:   01 84 c0 74 4e f7 c1 03 00 00 00 75 ef 05 00 00
+0x77739160:   00 00 8d a4 24 00 00 00 00 8d a4 24 00 00 00 00
+0x77739170:   8b 01 ba ff fe fe 7e 03 d0 83 f0 ff 33 c2 83 c1
+0x77739180:   04 a9 00 01 01 81 74 e8 8b 41 fc 84 c0 74 32 84 
+
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX={method} {0x14fe1d64} 'cocoGetObserver' '(Ljava/lang/String;Ljava/lang/String;J)J' in 'CocoJNI'
+ECX=0x00000000 is an unknown value
+EDX=0x00000000 is an unknown value
+ESP=0x0231fa6c is pointing into the stack for thread: 0x00b2b800
+EBP=0x0231fb28 is pointing into the stack for thread: 0x00b2b800
+ESI={method} {0x14fe1d64} 'cocoGetObserver' '(Ljava/lang/String;Ljava/lang/String;J)J' in 'CocoJNI'
+EDI=0x00b2b800 is a thread
+
+
+Stack: [0x022d0000,0x02320000],  sp=0x0231fa6c,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [msvcrt.dll+0x89170]
+C  [CocoJNI.dll+0x1857b]
+j  CocoJNI.cocoGetObserver(Ljava/lang/String;Ljava/lang/String;J)J+0
+j  Observer.<init>(Ljava/lang/String;Ljava/lang/String;J)V+8
+j  ExampleExperiment.exampleExperiment(Ljava/lang/String;Ljava/lang/String;Ljava/util/Random;)V+58
+j  ExampleExperiment.main([Ljava/lang/String;)V+35
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x15a2e5]
+V  [jvm.dll+0x21ff6e]
+V  [jvm.dll+0x15a37e]
+V  [jvm.dll+0xdbf47]
+V  [jvm.dll+0xe44df]
+C  [java.exe+0x229e]
+C  [java.exe+0xaeaf]
+C  [java.exe+0xaf39]
+C  [KERNEL32.DLL+0x162c4]
+C  [ntdll.dll+0x60609]
+C  [ntdll.dll+0x605d4]
+C  0x00000000
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  CocoJNI.cocoGetObserver(Ljava/lang/String;Ljava/lang/String;J)J+0
+j  Observer.<init>(Ljava/lang/String;Ljava/lang/String;J)V+8
+j  ExampleExperiment.exampleExperiment(Ljava/lang/String;Ljava/lang/String;Ljava/util/Random;)V+58
+j  ExampleExperiment.main([Ljava/lang/String;)V+35
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x02420400 JavaThread "Service Thread" daemon [_thread_blocked, id=6104, stack(0x15a40000,0x15a90000)]
+  0x023ef800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=1996, stack(0x159b0000,0x15a00000)]
+  0x023ee800 JavaThread "Attach Listener" daemon [_thread_blocked, id=13748, stack(0x153b0000,0x15400000)]
+  0x023ec800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=9320, stack(0x15320000,0x15370000)]
+  0x023e3000 JavaThread "Finalizer" daemon [_thread_blocked, id=8032, stack(0x14760000,0x147b0000)]
+  0x02386400 JavaThread "Reference Handler" daemon [_thread_blocked, id=11332, stack(0x146d0000,0x14720000)]
+=>0x00b2b800 JavaThread "main" [_thread_in_native, id=6548, stack(0x022d0000,0x02320000)]
+
+Other Threads:
+  0x02382800 VMThread [stack: 0x14640000,0x14690000] [id=11764]
+  0x0242e000 WatcherThread [stack: 0x15ad0000,0x15b20000] [id=488]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 531K [0x04600000, 0x04b50000, 0x09b50000)
+  eden space 4416K,  12% used [0x04600000, 0x04684cd8, 0x04a50000)
+  from space 512K,   0% used [0x04a50000, 0x04a50000, 0x04ad0000)
+  to   space 512K,   0% used [0x04ad0000, 0x04ad0000, 0x04b50000)
+ tenured generation   total 10944K, used 0K [0x09b50000, 0x0a600000, 0x14600000)
+   the space 10944K,   0% used [0x09b50000, 0x09b50000, 0x09b50200, 0x0a600000)
+ Metaspace       used 57K, capacity 2280K, committed 2368K, reserved 4480K
+
+Card table byte_map: [0x044e0000,0x04570000] byte_map_base: 0x044bd000
+
+Polling page: 0x00ab0000
+
+CodeCache: size=32768Kb used=670Kb max_used=670Kb free=32097Kb
+ bounds [0x02460000, 0x02508000, 0x04460000]
+ total_blobs=155 nmethods=15 adapters=72
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.048 Thread 0x023ef800   11             java.lang.CharacterDataLatin1::toLowerCase (39 bytes)
+Event: 0.048 Thread 0x023ef800 nmethod 11 0x02505fc8 code [0x025060c0, 0x025061a0]
+Event: 0.048 Thread 0x023ef800   12             java.lang.AbstractStringBuilder::ensureCapacityInternal (16 bytes)
+Event: 0.048 Thread 0x023ef800 nmethod 12 0x02506288 code [0x02506390, 0x0250643c]
+Event: 0.048 Thread 0x023ef800   13             java.lang.AbstractStringBuilder::append (29 bytes)
+Event: 0.048 Thread 0x023ef800 nmethod 13 0x025064c8 code [0x025065d0, 0x025066bc]
+Event: 0.053 Thread 0x023ef800   14             java.lang.String::indexOf (166 bytes)
+Event: 0.054 Thread 0x023ef800 nmethod 14 0x02506b48 code [0x02506c60, 0x02506e90]
+Event: 0.057 Thread 0x023ef800   15             java.io.WinNTFileSystem::normalize (143 bytes)
+Event: 0.058 Thread 0x023ef800 nmethod 15 0x025071c8 code [0x02507310, 0x0250758c]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (2 events):
+Event: 0.022 Thread 0x00b2b800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x046079c8) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u101\7261\hotspot\src\share\…T!þ-E–?
+Event: 0.022 Thread 0x00b2b800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x04607c98) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u101\7261\hotspot\src\share\vm\prims\jni.cpp, 
+
+Events (10 events):
+Event: 0.052 loading class ExampleExperiment$Function
+Event: 0.052 loading class ExampleExperiment$Function done
+Event: 0.053 loading class ExampleExperiment$1
+Event: 0.053 loading class ExampleExperiment$1 done
+Event: 0.053 loading class CocoJNI
+Event: 0.053 loading class CocoJNI done
+Event: 0.057 loading class Suite
+Event: 0.057 loading class Suite done
+Event: 0.058 loading class Observer
+Event: 0.058 loading class Observer done
+
+
+Dynamic libraries:
+0x00b30000 - 0x00b63000 	C:\ProgramData\Oracle\Java\javapath\java.exe
+0x77bd0000 - 0x77d52000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x77af0000 - 0x77bd0000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x75050000 - 0x751f1000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x72390000 - 0x72422000 	C:\WINDOWS\system32\apphelp.dll
+0x77590000 - 0x77607000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x776b0000 - 0x7776e000 	C:\WINDOWS\System32\msvcrt.dll
+0x76eb0000 - 0x76ef1000 	C:\WINDOWS\System32\sechost.dll
+0x75260000 - 0x75321000 	C:\WINDOWS\System32\RPCRT4.dll
+0x74690000 - 0x746ae000 	C:\WINDOWS\System32\SspiCli.dll
+0x74680000 - 0x7468a000 	C:\WINDOWS\System32\CRYPTBASE.dll
+0x74ff0000 - 0x7504a000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x747d0000 - 0x7492f000 	C:\WINDOWS\System32\USER32.dll
+0x746b0000 - 0x746c5000 	C:\WINDOWS\System32\win32u.dll
+0x76f00000 - 0x76f2b000 	C:\WINDOWS\System32\GDI32.dll
+0x76cf0000 - 0x76e4b000 	C:\WINDOWS\System32\gdi32full.dll
+0x72dc0000 - 0x72fca000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.14393.0_none_74bc87d3d22d9abe\COMCTL32.dll
+0x778d0000 - 0x77ae1000 	C:\WINDOWS\System32\combase.dll
+0x76f30000 - 0x77010000 	C:\WINDOWS\System32\ucrtbase.dll
+0x758a0000 - 0x758c5000 	C:\WINDOWS\System32\IMM32.DLL
+0x59010000 - 0x590cf000 	C:\Program Files (x86)\Java\jre1.8.0_101\bin\msvcr100.dll
+0x6c190000 - 0x6c55c000 	C:\Program Files (x86)\Java\jre1.8.0_101\bin\client\jvm.dll
+0x772d0000 - 0x772d6000 	C:\WINDOWS\System32\PSAPI.DLL
+0x6df30000 - 0x6df38000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x738a0000 - 0x738c4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x73c20000 - 0x73c28000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x74930000 - 0x74993000 	C:\WINDOWS\System32\WS2_32.dll
+0x00ae0000 - 0x00b03000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x758d0000 - 0x75906000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x6bd80000 - 0x6bd8c000 	C:\Program Files (x86)\Java\jre1.8.0_101\bin\verify.dll
+0x6bd50000 - 0x6bd71000 	C:\Program Files (x86)\Java\jre1.8.0_101\bin\java.dll
+0x5bd30000 - 0x5bd43000 	C:\Program Files (x86)\Java\jre1.8.0_101\bin\zip.dll
+0x75910000 - 0x76ce7000 	C:\WINDOWS\System32\SHELL32.dll
+0x75330000 - 0x7589e000 	C:\WINDOWS\System32\windows.storage.dll
+0x77780000 - 0x777c5000 	C:\WINDOWS\System32\powrprof.dll
+0x77540000 - 0x77586000 	C:\WINDOWS\System32\shlwapi.dll
+0x76ea0000 - 0x76ead000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x74a40000 - 0x74ac8000 	C:\WINDOWS\System32\shcore.dll
+0x74bd0000 - 0x74bdf000 	C:\WINDOWS\System32\profapi.dll
+0x6d7c0000 - 0x6d819000 	C:\Users\akhou\Documents\Master\Optimisation\Tools\coco-master\code-experiments\build\java\CocoJNI.dll
+0x6eb40000 - 0x6eb63000 	C:\MinGW\bin\libgcc_s_dw2-1.dll
+0x6aa80000 - 0x6abc5000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Djava.library.path=. 
+java_command: ExampleExperiment
+java_class_path (initial): .
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Users\akhou\Anaconda2\Library\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Dev\Tools\SSH;.\lib\native\win32-x86-64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Calibre2\;C:\Program Files (x86)\Java\jre1.8.0_101\bin;C:\Program Files (x86)\Java\jdk1.8.0_66\bin;C:\Program Files\MATLAB\R2016b\bin;C:\Users\akhou\Anaconda2;C:\Users\akhou\Anaconda2\Scripts;C:\Users\akhou\Anaconda2\Library\bin;C:\Program Files\MongoDB\Server\3.2\bin;C:\cygwin64\bin;C:\MinGW\bin;C:\Program Files (x86)\Java\jre1.8.0_101\bin;C:\Program Files (x86)\Java\jdk1.8.0_66\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
+USERNAME=akhou
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 14393 (10.0.14393.0)
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 94 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16726352k(10254252k free), swap 19216720k(9998572k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.101-b13) for windows-x86 JRE (1.8.0_101-b13), built on Jun 22 2016 00:45:44 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Sun Oct 16 15:58:31 2016
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
